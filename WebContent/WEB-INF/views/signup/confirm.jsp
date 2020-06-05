@@ -8,8 +8,16 @@
 <body>
 confirm
 <form action="" method="post">
-<button type="button" onclick="back()">back</button>
-<button>complete</button>
+  <p>
+    <label for="name">name: </label>
+    <input type="text" name="name" id="name" value="" readonly>
+  </p>
+  <p>
+    <label for="email">email: </label>
+    <input type="email" name="email" id="email" value="" readonly>
+  </p>
+  <button type="button" onclick="back()">back</button>
+  <button>complete</button>
 </form>
 <script>
 function back() {

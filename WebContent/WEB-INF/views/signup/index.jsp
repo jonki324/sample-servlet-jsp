@@ -8,8 +8,16 @@
 <body>
 signup index
 <form action="" method="post">
-<button type="button" onclick="back()">back</button>
-<button>confirm</button>
+  <p>
+    <label for="name">name: </label>
+    <input type="text" name="name" id="name" value="">
+  </p>
+  <p>
+    <label for="email">email: </label>
+    <input type="email" name="email" id="email" value="">
+  </p>
+  <button type="button" onclick="back()">back</button>
+  <button>confirm</button>
 </form>
 <script>
 function back() {
