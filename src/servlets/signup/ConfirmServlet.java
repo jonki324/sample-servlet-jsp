@@ -8,6 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import models.dto.SignUpDto;
 
 @WebServlet(name = "signup.ConfirmServlet", urlPatterns = { "/signup/confirm" })
 public class ConfirmServlet extends HttpServlet {
@@ -24,6 +27,9 @@ public class ConfirmServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		SignUpDto dto = (SignUpDto)session.getAttribute("signUpDto");
+		
 		String path = "/sample-servlet-jsp/signup/complete";
 		response.sendRedirect(path);
 	}
