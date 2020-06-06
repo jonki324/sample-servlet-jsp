@@ -94,4 +94,17 @@ public class UserService {
         }
         return result;
     }
+
+    public List<UserDto> isValidSignIn(String name, String email) {
+        List<UserDto> result = null;
+        ConnectionManager connectionManager = new ConnectionManager();
+        try {
+            UserDao dao = new UserDao(connectionManager.getConnection());
+            result = dao.fetchByNameAndEmail(name, email);
+        } catch (RuntimeException e) {
+        } finally {
+            connectionManager.closeConnection();
+        }
+        return result;
+    }
 }

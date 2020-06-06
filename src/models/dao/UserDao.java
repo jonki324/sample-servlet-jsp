@@ -48,6 +48,24 @@ public class UserDao extends BaseDao {
         return list;
     }
 
+    public List<UserDto> fetchByNameAndEmail(String name, String email) {
+        List<UserDto> list = new ArrayList<>();
+        String sql = "select * from users where name = ? and email = ?";
+        try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
+            ps.setString(1, name);
+            ps.setString(2, email);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                UserDto dto = UserDxo.convert(rs);
+                list.add(dto);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
+        return list;
+    }
+
     public int insert(UserDto dto) {
         int result = -1;
         String sql = "insert into users (name, email) values (?, ?)";
