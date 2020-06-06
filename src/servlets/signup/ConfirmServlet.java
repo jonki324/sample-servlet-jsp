@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import models.dto.SignUpDto;
+import models.dto.UserDto;
+import models.dxo.UserDxo;
+import models.services.UserService;
 
 @WebServlet(name = "signup.ConfirmServlet", urlPatterns = { "/signup/confirm" })
 public class ConfirmServlet extends HttpServlet {
@@ -28,7 +31,10 @@ public class ConfirmServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        SignUpDto dto = (SignUpDto) session.getAttribute("signUpDto");
+        SignUpDto signUpDto = (SignUpDto) session.getAttribute("signUpDto");
+        UserDto userDto = UserDxo.convert(signUpDto);
+        UserService service = new UserService();
+        int result = service.add(userDto);
 
         String path = "/sample-servlet-jsp/signup/complete";
         response.sendRedirect(path);
