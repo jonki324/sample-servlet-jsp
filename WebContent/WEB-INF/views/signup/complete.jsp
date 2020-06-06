@@ -7,7 +7,7 @@
 <title>Complete</title>
 </head>
 <body>
-complete
-<a href="/sample-servlet-jsp/top/index">top</a>
+  <h1>complete</h1>
+  <a href="/sample-servlet-jsp/top/index">top</a>
 </body>
 </html>

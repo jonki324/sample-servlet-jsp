@@ -14,24 +14,23 @@ import models.dto.SignUpDto;
 
 @WebServlet(name = "signup.ConfirmServlet", urlPatterns = { "/signup/confirm" })
 public class ConfirmServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
+    private static final long serialVersionUID = 1L;
+
     public ConfirmServlet() {
         super();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path = "/WEB-INF/views/signup/confirm.jsp";
-		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
-		dispatcher.forward(request, response);
-	}
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String path = "/WEB-INF/views/signup/confirm.jsp";
+        RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+        dispatcher.forward(request, response);
+    }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		SignUpDto dto = (SignUpDto)session.getAttribute("signUpDto");
-		
-		String path = "/sample-servlet-jsp/signup/complete";
-		response.sendRedirect(path);
-	}
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        SignUpDto dto = (SignUpDto) session.getAttribute("signUpDto");
 
+        String path = "/sample-servlet-jsp/signup/complete";
+        response.sendRedirect(path);
+    }
 }
