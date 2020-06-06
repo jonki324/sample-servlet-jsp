@@ -25,6 +25,7 @@ public class IndexServlet extends HttpServlet {
         HttpSession session = request.getSession();
         SignUpDto dto = (SignUpDto) session.getAttribute("signUpDto");
         if (dto == null) {
+            // 初回画面表示
             dto = new SignUpDto();
             session.setAttribute("signUpDto", dto);
         }
@@ -35,6 +36,7 @@ public class IndexServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // パラメータの詰め替え
         SignUpDto dto = SignUpDxo.convert(request);
         HttpSession session = request.getSession();
         session.setAttribute("signUpDto", dto);

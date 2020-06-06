@@ -3,14 +3,16 @@ package models.dto;
 public class SignUpDto {
     private String name;
     private String email;
+    private String message;
 
     public SignUpDto() {
     };
 
-    public SignUpDto(String name, String email) {
+    public SignUpDto(String name, String email, String message) {
         super();
         this.name = name;
         this.email = email;
+        this.message = message;
     }
 
     public String getName() {
@@ -27,5 +29,13 @@ public class SignUpDto {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

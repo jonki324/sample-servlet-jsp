@@ -13,6 +13,6 @@ public class SignUpDxo {
     public static SignUpDto convert(HttpServletRequest request) throws IOException {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
-        return new SignUpDto(name, email);
+        return new SignUpDto(name, email, null);
     }
 }

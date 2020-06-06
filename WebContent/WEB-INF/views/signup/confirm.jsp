@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +8,9 @@
 </head>
 <body>
   <h1>confirm</h1>
+  <c:if test="${signUpDto.message != null}" >
+    <p>${signUpDto.message}</p>
+  </c:if>
   <form action="" method="post">
     <p>
       <label for="name">name: </label>
